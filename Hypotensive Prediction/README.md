@@ -1,7 +1,7 @@
 ### Hypotensive Prediction project🏥
 ### 저혈압 예측 모델 생성 프로젝트 
 ##### ⠀
-#### Data Source : http://aibig.sch.ac.kr/main.do (250hz) (순천향대학교 AI&빅데이터 센터의 데이터 사용)
+#### Data Source : 순천향대학교 AI&빅데이터 센터의 혈압 관련 데이터 사용 (http://aibig.sch.ac.kr/main.do )
 ##### ⠀⠀
 #### Package Used
 ```
@@ -14,6 +14,7 @@ library(RWeka)
 ```
 #### ⠀⠀
 #### Data Preprocessing
+##### -250Hz
 ##### -관찰기간 : 1분
 ##### -저혈압 기준 : 최소값이 50이하
 ```
@@ -73,8 +74,65 @@ for(file in fls){
   final_data<-rbind(final_data,data)
 }
 ```
-
-#### Statistical Features
 ##### 
+#### Add Features
+##### Statistical Features : 통계특징
+##### ●mean, max, min, sd, skewness, rms, rss, IQR, kurtosis (평균, 최대, 최소, 표준편차, 왜도, rms, rss, 첨도)
+```
+final_data2<-subset(final_data,select=-event)
+
+#rss/skewness함수 정의
+rss<-function(x) rms(x)*(length(x))^0.5
+skewness<-function(x){
+  (sum((x-mean(x))^3)/length(x))/((sum((x-mean(x))^2)/length(x)))^(3/2)
+}
+
+#행별로 mean, max,min 등의 함수를 적용하여 v_mean. v_max 등의 컬럼 생성하여 추가하기
+fun_list<- c("mean", "max","min","sd","skewness","rms","rss","IQR","kurtosis")
+for(fun in fun_list){
+  final_data2[,str_c("v_", fun)]<- as.numeric(apply(final_data2, 1, fun))
+}
+
+#final_data3 : 위에서 행별로 함수를 적용하여 추출한 컬럼과 원래 final_data의 event 컬럼만 뽑아서 합치기 
+final_data3<-final_data2%>%select(v_mean,v_max,v_min,v_sd,v_skewness,v_rms,v_rss,v_kurtosis)
+final_data3<-cbind(final_data3,final_data$event)
+names(final_data3)[9]<-"event"
+View(final_data3)
+```
+##### ChangePoint Features : 변화분석
+##### ●cpt.mean, cpt.var, cpt.meanvar (평균의 변화, 분산의 변화, 평균과 분산의 변화)
+```
+chpt_df <- data.frame()
+for(i in 1:nrow(final_data2)){ #event 컬럼을 제거해 놓았던 final_data2 데이터 이용
+  
+  cp_mean<- cpt.mean(as.numeric(final_data2[i,]))
+  cp_mean<- cpts(cp_mean)
+  cp_var<- cpt.var(as.numeric(final_data2[i,]))
+  cp_var<- cpts(cp_var)
+  cp_m_var<- cpt.meanvar(as.numeric(final_data2[i,]))
+  cp_m_var<- cpts(cp_m_var)
+  
+  chpt_df <- 
+    rbind(chpt_df, data.frame(cp1 = length(cp_mean), cp2 = length(cp_var), cp3 = length(cp_m_var)))
+}
+
+View(chpt_df)
+
+#real_fianl : 변화분석 + 통계분석 합쳐서 데이터 만들기
+real_final<-cbind(final_data3,chpt_df)
+View(real_final)
+```
+#### Modeling
+##### Random Forest model 사용
+```
+RF<-make_Weka_classifier("weka/classifiers/trees/RandomForest")
+
+m<-RF(event~., data=real_final)
+```
+#### 10 Fold cross-validation
+```
+e<-evaluate_Weka_classifier(m,numFolds=10,complexity=TRUE,class=TRUE)
+e
+```
 
 
