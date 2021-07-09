@@ -14,9 +14,9 @@ library(RWeka)
 ```
 #### ⠀⠀
 #### Data Preprocessing
-##### -250Hz
-##### -관찰기간 : 1분
-##### -저혈압 기준 : 최소값이 50이하
+##### ●250Hz
+##### ●관찰기간 : 1분
+##### ●저혈압 기준 : 최소값이 50이하
 ```
 SRATE<-250
 MINUTES_AHEAD=1
@@ -123,7 +123,7 @@ real_final<-cbind(final_data3,chpt_df)
 View(real_final)
 ```
 #### Modeling
-##### Random Forest model 사용
+##### ●Random Forest model 사용
 ```
 RF<-make_Weka_classifier("weka/classifiers/trees/RandomForest")
 
