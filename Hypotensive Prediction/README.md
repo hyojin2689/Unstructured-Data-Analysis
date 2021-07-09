@@ -74,8 +74,8 @@ for(file in fls){
 ```
 ##### 
 ### **Add Features**
-#### Statistical Features : 통계특징
-##### ●mean, max, min, sd, skewness, rms, rss, IQR, kurtosis (평균, 최대, 최소, 표준편차, 왜도, rms, rss, 첨도)
+#### ●Statistical Features : 통계특징
+##### -mean, max, min, sd, skewness, rms, rss, IQR, kurtosis (평균, 최대, 최소, 표준편차, 왜도, rms, rss, 첨도)
 ```
 final_data2<-subset(final_data,select=-event)
 
@@ -97,8 +97,8 @@ final_data3<-cbind(final_data3,final_data$event)
 names(final_data3)[9]<-"event"
 View(final_data3)
 ```
-#### ChangePoint Features : 변화분석
-##### ●cpt.mean, cpt.var, cpt.meanvar (평균의 변화, 분산의 변화, 평균과 분산의 변화)
+#### ●ChangePoint Features : 변화분석
+##### -cpt.mean, cpt.var, cpt.meanvar (평균의 변화, 분산의 변화, 평균과 분산의 변화)
 ```
 chpt_df <- data.frame()
 for(i in 1:nrow(final_data2)){ #event 컬럼을 제거해 놓았던 final_data2 데이터 이용
