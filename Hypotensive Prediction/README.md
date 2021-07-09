@@ -1,5 +1,5 @@
-### Hypotensive Prediction project 🏥
-### 저혈압 예측 모델 생성 프로젝트 
+### **Hypotensive Prediction project** 🏥
+### **저혈압 예측 모델 생성 프로젝트** 
 ##### ⠀
 #### Data Source : 순천향대학교 AI&빅데이터 센터의 혈압 관련 데이터 사용 (http://aibig.sch.ac.kr/main.do )
 ##### ⠀⠀
@@ -13,7 +13,7 @@ library(changepoint)
 library(RWeka)
 ```
 #### ⠀⠀
-#### Data Preprocessing
+#### **Data Preprocessing**
 ##### ●250Hz
 ##### ●관찰기간 : 1분
 ##### ●저혈압 기준 : 최소값이 50이하
@@ -75,7 +75,7 @@ for(file in fls){
 }
 ```
 ##### 
-#### Add Features
+#### **Add Features**
 ##### Statistical Features : 통계특징
 ##### ●mean, max, min, sd, skewness, rms, rss, IQR, kurtosis (평균, 최대, 최소, 표준편차, 왜도, rms, rss, 첨도)
 ```
@@ -122,14 +122,14 @@ View(chpt_df)
 real_final<-cbind(final_data3,chpt_df)
 View(real_final)
 ```
-#### Modeling
+#### **Modeling**
 ##### ●Random Forest model 사용
 ```
 RF<-make_Weka_classifier("weka/classifiers/trees/RandomForest")
 
 m<-RF(event~., data=real_final)
 ```
-#### 10 Fold cross-validation
+#### **10 Fold cross-validation**
 ```
 e<-evaluate_Weka_classifier(m,numFolds=10,complexity=TRUE,class=TRUE)
 e
