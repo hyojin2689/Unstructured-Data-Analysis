@@ -283,7 +283,9 @@ for(d in fls){
   rslt3_cpts2 <- cpts(rslt3$maguserAcceleration)
   rslt3_cpts3 <- cpts(rslt3$maggravity)
   
-  ch_pt_pelt <- rbind(ch_pt_pelt, data.frame(d,cp1=length(rslt_cpts1),cp2=length(rslt_cpts2),cp3 = length(rslt_cpts3), cp4=length(rslt2_cpts1),cp5=length(rslt2_cpts2),cp6 = length(rslt2_cpts3), cp7=length(rslt3_cpts1),cp8=length(rslt3_cpts2), cp9 = length(rslt3_cpts3) ))
+  ch_pt_pelt <- rbind(ch_pt_pelt, data.frame(d,cp1=length(rslt_cpts1),cp2=length(rslt_cpts2),cp3 = length(rslt_cpts3), 
+  cp4=length(rslt2_cpts1),cp5=length(rslt2_cpts2),cp6 = length(rslt2_cpts3), cp7=length(rslt3_cpts1),cp8=length(rslt3_cpts2), 
+  cp9 = length(rslt3_cpts3) ))
 }
 
 for(d in fls){
