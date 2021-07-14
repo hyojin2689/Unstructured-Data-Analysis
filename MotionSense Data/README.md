@@ -185,7 +185,8 @@ HAR_total <- mag(HAR_total,"rotationRate")
 HAR_total <- mag(HAR_total, "gravity")
 
 #가속도, 회전, 중력 등의 변수에 대해 통계특질 생성
-HAR_summary<-HAR_total%>%group_by(id,exp_no,activity)%>%dplyr::summarize_at(.vars=c("maguserAcceleration","magrotationRate",
+HAR_summary<-HAR_total%>%group_by(id,exp_no,activity)%>%
+dplyr::summarize_at(.vars=c("maguserAcceleration","magrotationRate",
                                                                                     "maggravity","attitude.roll","attitude.pitch","attitude.yaw"),.funs=c(mean,min,max,sd,skewness,rms,rss))
 
 for(d in fls){
