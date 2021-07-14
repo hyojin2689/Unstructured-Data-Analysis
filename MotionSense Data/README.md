@@ -263,6 +263,7 @@ peak_final_new2 <- cbind(peak_final_new, temp)
 #통계특징과 피크특징 합치기
 HAR_peak <- merge(peak_final_new2, HAR_summary, by=c("id","exp_no","activity")) 
 
+#변화분석
 ch_pt_pelt <- data.frame() 
 
 for(d in fls){
@@ -296,13 +297,6 @@ for(d in fls){
   assign(d,f)
 }
 
-id_f <- function(x){
-  exp_no = unlist(regmatches(x,gregexpr("[[:digit:]]+", x)[1]))[1]
-  id=unlist(regmatches(x,gregexpr("[[:digit:]]+",x)[1]))[2]
-  activity=unlist(str_split(x,"\\_"))[1]
-  return(cbind(exp_no,id,activity))
-}
-
 temp <- data.frame()
 for(i in 1:nrow(ch_pt_pelt)){
   temp <- rbind(temp,id_f(ch_pt_pelt$d[i]))
@@ -314,7 +308,7 @@ HAR_peak_chpt_pelt <- merge(HAR_peak, ch_pt_pelt, by = c("id","exp_no","activity
 
 final <- HAR_peak_chpt_pelt%>%ungroup()%>%select(-d,-exp_no,-id)
 ```
-#### 
+#### -RF알고리즘을 이용하여 학습모델 생성 
 ```
 #바로 검색이 안되는 알고리즘 이름 정의
 RF<-make_Weka_classifier("weka/classifiers/trees/RandomForest")
@@ -323,9 +317,18 @@ Bayes_net<-make_Weka_classifier("weka/classifiers/bayes/BayesNet")
 m3 <- RF(as.factor(activity)~., data=final)
 summary(m3) #학습모델
 ```
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/80669371/125546795-fe8b5c40-d417-4a3a-966a-10d24f2355d8.png" alt="factorio thumbnail"/>
+</p> 
+
+#### -성능평가
 ```
 e3 <- evaluate_Weka_classifier(m3, numFolds =10, complexity = TRUE, class = TRUE) #평가
 e3
 ```
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/80669371/125546911-d04040bd-6dfd-4c48-aee1-d4c7530a23eb.png" alt="factorio thumbnail"/>
+</p> 
+
 
 
