@@ -15,7 +15,7 @@ library(tidyverse)
 library(shinythemes)
 ```
 
-### Data Preprocessing
+### 1.Data Preprocessing
 #### usr1_walking_total 데이터 생성
 ```
 #경로설정
@@ -78,7 +78,7 @@ View(user1_walking_total)
 ```
 ![image](https://user-images.githubusercontent.com/80669371/125881445-fdc8df25-ca9d-46a3-8795-e9e08b6f2cbc.png)
 
-### Develop Shiny App
+### 2.Develop Shiny App
 ```
 ui <- fluidPage(
   titlePanel(title="Walking data of user1 in Mobile phone sensor data."),
