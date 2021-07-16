@@ -14,7 +14,7 @@ library(ggplot2)
 library(tidyverse)
 library(shinythemes)
 ```
-
+###### ⠀
 ### 1.Data Preprocessing
 #### usr1_walking_total 데이터 생성
 ```
