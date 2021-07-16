@@ -16,7 +16,7 @@ library(shinythemes)
 ```
 ###### ⠀
 ### 1.Data Preprocessing
-#### usr1_walking_total 데이터 생성
+#### ●usr1_walking_total 데이터 생성
 ```
 #경로설정
 setwd("C:/Users/h0103/Downloads/A_DeviceMotion_data/A_DeviceMotion_data")
@@ -117,7 +117,7 @@ server <- function(input,output,session) {
 
 shinyApp(ui=ui, server=server)
 ```
-
+###### ⠀
 ### Deploy Link
 #### https://shinhyojin.shinyapps.io/newshiny/
 
