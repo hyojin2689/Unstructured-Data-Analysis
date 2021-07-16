@@ -1,8 +1,8 @@
-## Develop Shiny App about Walking data of user1 in Mobile phone sensor data
-## 실험자 1의 핸드폰 센서 데이터 속 걷기실험 데이터에 대한 샤이니 앱 구현
+## **Develop Shiny App about Walking data of user1 in Mobile phone sensor data**
+### 실험자 1의 핸드폰 센서 데이터 속 걷기실험 데이터에 대한 샤이니 앱 구현
 
-### ●실험자 1의 walking 실험에 대한 데이터 테이블 정보
-### ●walking 실험에서 시간에 따른 가속도, 중력, 회전율 값을 그래프로 시각화 
+#### ●실험자 1의 walking 실험에 대한 데이터 테이블 정보
+#### ●walking 실험에서 시간에 따른 가속도, 중력, 회전율 값을 그래프로 시각화 
 
 #### Package Used
 ```
