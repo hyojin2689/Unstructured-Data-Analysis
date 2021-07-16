@@ -77,6 +77,7 @@ user1_walking_total<-user1_walking_total[c(14,16,17,18,19)]
 View(user1_walking_total)
 ```
 ![image](https://user-images.githubusercontent.com/80669371/125881445-fdc8df25-ca9d-46a3-8795-e9e08b6f2cbc.png)
+##### ⠀
 
 ### 2.Develop Shiny App
 ```
