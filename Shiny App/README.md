@@ -77,7 +77,7 @@ user1_walking_total<-user1_walking_total[c(14,16,17,18,19)]
 View(user1_walking_total)
 ```
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/80669371/125882092-0de4159d-ffe5-420c-acf6-b7f2448d68d9.png" alt="factorio thumbnail"/>
+  <img src="https://user-images.githubusercontent.com/80669371/125882173-9ffca611-3c48-4d84-bfc7-13cde61fe4ea.png" alt="factorio thumbnail"/>
 </p> 
 
 
