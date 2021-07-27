@@ -120,7 +120,7 @@ server <- function(input,output,session) {
 shinyApp(ui=ui, server=server)
 ```
 ###### ⠀
-### 3.Deploy Link
+### 3.Deploy Link 🔗
 #### https://shinhyojin.shinyapps.io/newshiny/
 
 
