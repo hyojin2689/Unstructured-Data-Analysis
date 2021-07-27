@@ -16,7 +16,7 @@ library(shinythemes)
 ```
 ###### ⠀
 ### 1.Data Preprocessing
-#### ●usr1_walking_total 데이터 생성
+#### ●user1_walking_total 데이터 생성
 ```
 #경로설정
 setwd("C:/Users/h0103/Downloads/A_DeviceMotion_data/A_DeviceMotion_data")
