@@ -14,6 +14,7 @@ library(ggplot2)
 library(tidyverse)
 library(shinythemes)
 ```
+##### Data : Motion Sense Data
 ###### ⠀
 ### 1.Data Preprocessing
 #### ●user1_walking_total 데이터 생성
