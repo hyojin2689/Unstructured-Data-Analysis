@@ -1,4 +1,4 @@
-## **Develop Shiny App about Walking data of user1 in Mobile phone sensor data** 🚶
+## **Develop Shiny App about Walking data of user1 in Mobile phone sensor data** 🚶📱
 ### **실험자 1의 핸드폰 센서 데이터 속 걷기실험 데이터에 대한 샤이니 앱 구현**
 ###### ⠀
 #### ●실험자 1의 walking 실험에 대한 데이터 테이블 정보
