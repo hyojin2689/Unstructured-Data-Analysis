@@ -1,3 +1,4 @@
+#UI
 ui <- fluidPage(
   titlePanel(title="Walking data of user1 in Mobile phone sensor data."),
   sidebarPanel( #화면분할
@@ -19,6 +20,7 @@ ui <- fluidPage(
   )
 )
 
+#SERVER
 server <- function(input,output,session) {
   output$user1=renderDT( #데이터테이블
     user1_walking_total,options=list(lengthChange=FALSE)
