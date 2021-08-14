@@ -45,7 +45,7 @@ for(f in user1_walking){ #user1의 walking 데이터를 차례때로 받음
 }
 unlist(regmatches(f,gregexpr("[[:digit:]]+", f)[1])) #정수값 뽑아서 regmatches에 넣어줌
 
-#변수만들기
+#변수 만들기
 user1_walking_total<- mag(user1_walking_total,"userAcceleration")
 user1_walking_total<- mag(user1_walking_total,"rotationRate")
 user1_walking_total<- mag(user1_walking_total,"gravity")
