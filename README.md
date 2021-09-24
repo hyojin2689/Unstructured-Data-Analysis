@@ -16,18 +16,3 @@
 <p align="center">
   <img src="https://user-images.githubusercontent.com/80669371/125542060-60d7de6f-dbdd-425a-8995-b07631f4e8a7.png" alt="factorio thumbnail"/>
 </p> 
-
-##### Package Used
-```
-library(stringr)
-library(tidyverse)
-library(dplyr)
-library(ggplot2)
-library(RWeka)
-library(pracma)
-library(quantmod)
-library(seewave)
-library(rematch)
-library(rlang)
-library(changepoint)
-```
